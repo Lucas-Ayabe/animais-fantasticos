@@ -1,0 +1,28 @@
+.js [data-accordion] dd {
+    display: none;
+}
+
+[data-accordion] dt::after {
+    content: "⬎";
+    margin-left: 10px;
+}
+
+[data-accordion] dt.is-active::after {
+    content: "⬏";
+}
+
+[data-accordion] dd.is-active {
+    display: block;
+    animation: slideDown 0.5s forwards;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        max-height: 200px;
+        opacity: 1;
+    }
+}
