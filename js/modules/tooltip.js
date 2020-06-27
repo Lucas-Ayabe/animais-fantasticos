@@ -45,7 +45,6 @@ export default class Tooltip {
   }
 
   init() {
-    alert("destructuring");
     if (this.tooltips.length) {
       this.bindEvents();
     }
