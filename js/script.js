@@ -37,5 +37,9 @@ dropdownMenu.init();
 menuMobile.init();
 operation.init();
 
-fetchAnimals("../../animais.api.json", ".numeros-grid");
+// Development
+// fetchAnimals("../../animais.api.json", ".numeros-grid");
+
+// Production
+fetchAnimals("./animais.api.json", ".numeros-grid");
 fetchBitcoin("https://blockchain.info/ticker", ".btc-preco");
