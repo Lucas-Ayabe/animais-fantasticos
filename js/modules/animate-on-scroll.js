@@ -19,7 +19,6 @@ export default class ScrollAnimate {
   }
 
   checkDistances() {
-    console.log("teste");
     this.distances.forEach((distance) => {
       if (window.pageYOffset > distance.offset) {
         distance.element.classList.add(this.activeClass);
