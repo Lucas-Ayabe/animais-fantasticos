@@ -7,7 +7,7 @@ import Tooltip from "./modules/tooltip.js";
 import initDropdownMenu from "./modules/dropdown-menu.js";
 import initMenuMobile from "./modules/menu-mobile.js";
 import initOperation from "./modules/operation.js";
-import initFetchAnimals from "./modules/fetch-animals.js";
+import fetchAnimals from "./modules/fetch-animals.js";
 import initFetchBitcoin from "./modules/fetch-bitcoin.js";
 
 const accordion = new Accordion("[data-accordion] dt");
@@ -29,9 +29,10 @@ tabNav.init();
 modal.init();
 tooltip.init();
 
+fetchAnimals("/animais.api.json", ".numeros-grid");
+
 initAnimateOnScroll();
 initDropdownMenu();
 initMenuMobile();
 initOperation();
-initFetchAnimals();
 initFetchBitcoin();
