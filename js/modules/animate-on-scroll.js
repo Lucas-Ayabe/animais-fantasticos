@@ -4,7 +4,26 @@ export default class ScrollAnimate {
     this.windowHalfHeight = window.innerHeight * 0.6;
     this.activeClass = activeClass;
 
-    this.animateScroll = this.animateScroll.bind(this);
+    this.checkDistances = this.checkDistances.bind(this);
+  }
+
+  getDistances() {
+    this.distances = [...this.sections].map((section) => {
+      return {
+        element: section,
+        offset: Math.floor(section.offsetTop - this.windowHalfHeight),
+      };
+    });
+  }
+
+  checkDistances() {
+    this.distances.forEach((distance) => {
+      if (window.pageYOffset > distance.offset) {
+        distance.element.classList.add(this.activeClass);
+      } else if (distance.element.classList.contains(this.activeClass)) {
+        distance.element.classList.remove(this.activeClass);
+      }
+    });
   }
 
   animateScroll() {
@@ -22,9 +41,16 @@ export default class ScrollAnimate {
 
   init() {
     if (this.sections.length > 0) {
-      this.animateScroll();
+      this.getDistances();
+      this.checkDistances();
 
-      window.addEventListener("scroll", this.animateScroll);
+      window.addEventListener("scroll", this.checkDistances);
     }
+
+    return this;
+  }
+
+  stop() {
+    window.removeEventListener("scroll", this.checkDistances);
   }
 }
