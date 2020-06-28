@@ -1,10 +1,12 @@
+import debounce from "./debounce.js";
+
 export default class ScrollAnimate {
   constructor(sections, activeClass) {
     this.sections = document.querySelectorAll(sections);
     this.windowHalfHeight = window.innerHeight * 0.6;
     this.activeClass = activeClass;
 
-    this.checkDistances = this.checkDistances.bind(this);
+    this.checkDistances = debounce(this.checkDistances.bind(this), 50);
   }
 
   getDistances() {
@@ -17,6 +19,7 @@ export default class ScrollAnimate {
   }
 
   checkDistances() {
+    console.log("teste");
     this.distances.forEach((distance) => {
       if (window.pageYOffset > distance.offset) {
         distance.element.classList.add(this.activeClass);
