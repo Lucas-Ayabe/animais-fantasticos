@@ -6,7 +6,7 @@ import Modal from "./modules/modal.js";
 import Tooltip from "./modules/tooltip.js";
 import DropdownMenu from "./modules/dropdown-menu.js";
 import MenuMobile from "./modules/menu-mobile.js";
-import initOperation from "./modules/operation.js";
+import Operation from "./modules/operation.js";
 import fetchAnimals from "./modules/fetch-animals.js";
 import fetchBitcoin from "./modules/fetch-bitcoin.js";
 
@@ -25,6 +25,7 @@ const tooltip = new Tooltip("[data-tooltip]");
 const scrollAnimate = new ScrollAnimate('[data-animate="scroll"]', "ativo");
 const dropdownMenu = new DropdownMenu("[data-dropdown]", "active");
 const menuMobile = new MenuMobile('[data-menu="button"', '[data-menu="list"]');
+const operation = new Operation("[data-week][data-hours]", "active");
 
 smoothScroll.init();
 accordion.init();
@@ -34,8 +35,7 @@ tooltip.init();
 scrollAnimate.init();
 dropdownMenu.init();
 menuMobile.init();
+operation.init();
 
 fetchAnimals("/animais.api.json", ".numeros-grid");
 fetchBitcoin("https://blockchain.info/ticker", ".btc-preco");
-
-initOperation();
