@@ -9,6 +9,7 @@ import MenuMobile from "./modules/menu-mobile.js";
 import Operation from "./modules/operation.js";
 import fetchAnimals from "./modules/fetch-animals.js";
 import fetchBitcoin from "./modules/fetch-bitcoin.js";
+import Slider from "./modules/SliderNav";
 
 const accordion = new Accordion("[data-accordion] dt");
 const smoothScroll = new SmoothScroll('[data-menu="smooth"] a[href^="#"]');
@@ -43,3 +44,7 @@ operation.init();
 // Production
 fetchAnimals("./animais.api.json", ".numeros-grid");
 fetchBitcoin("https://blockchain.info/ticker", ".btc-preco");
+
+const slider = new Slider(".slider__slides", ".slider");
+slider.init();
+slider.addControl(".custom-controls");
